@@ -3,28 +3,28 @@ Algoritmo "Aula 12"
 //  
 // 
 //  
-// DescriÁ„o   : CÛdigo similar ao apresentado na aula 12, porÈm mais simples
+// Descri√ß√£o   : C√≥digo similar ao apresentado na aula 12, por√©m mais simples
 // Autor(a)    : Ant. Lucas Vieira de Lima
 // Data atual  : 04/08/2021
 Var
 Prato, PratoDois : caracter
+Pagamento : Inteiro
 Inicio
 Repita
-Limpatela
-escreval ("A- Camar„o Internacional")
-escreval ("B- FilÈ Parmegiana")
+escreval ("A- Camar√£o Internacional")
+escreval ("B- Fil√© Parmegiana")
 escreval ("C- Macarronada 4 Queijos")
 escreval ("D- Lasanha Bolonhesa")
 escreval ("E- Frango Parmegiana")
 escreval ("F- Sair")
 
-escreval ("Escolha entre as opÁıes de A a F")
+escreval ("Escolha entre as op√ß√µes de A a F")
 leia (Prato)
 escolha (Prato)
 caso "A"
-escreval ("Camar„o Internacional----R$50,00")
+escreval ("Camar√£o Internacional----R$50,00")
 caso "B"
-escreval ("FilÈ Parmegiana---R$44,90")
+escreval ("Fil√© Parmegiana---R$44,90")
 caso "C"
 escreval ("Macarronada 4 Queijos---R$30,00")
 caso "D"
@@ -33,9 +33,18 @@ caso "E"
 escreval ("Frango Parmegiana---R$40,90")
 caso "F"
 escreval ("Obrigado e volte sempre!")
-outrocaso
-escreval ("Erro: OpÁ„o Inv·lida")
+limpatela
 fimescolha
-leia (PratoDois)
 ate (Prato) = "F"
+escreval ("1- Dinheiro")
+escreval ("2- Cart√£o")
+
+escreval ("Escolha uma das 2 op√ß√µes")
+leia (Pagamento)
+escolha (Pagamento)
+Caso 1
+escreval ("Pagamento em dinheiro confirmado")
+Caso 2
+escreval ("Pagamento no Cart√£o confirmado")
+fimescolha
 Fimalgoritmo
