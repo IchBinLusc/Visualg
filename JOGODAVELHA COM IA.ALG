@@ -1,9 +1,9 @@
 algoritmo "JogoDaVelhaIA"
-// Função :
-// Autor :
-// Data : 09/03/2013
+// FunÃ§Ã£o : Um jogo da velha que pode ser jogado em multi ou singleplayer
+// Autor : Ant. lucas Vieira de Lima e Natanael dos Santos Lino
+// Data : 25/08/2021
 
-// Seção de Declarações 
+// SeÃ§Ã£o de DeclaraÃ§Ãµes 
 var
    numeroDeJogadas : inteiro
    jogadaValorTemp : inteiro
@@ -140,12 +140,12 @@ inicio
       
 fimfuncao
 
-//Decide a melhor jogada para a máquina
+//Decide a melhor jogada para a mÃ¡quina
 funcao JogadaDaMaquina() : inteiro
 inicio
 
       jogadaValor <- 0
-      //Se não existir mais jogadas retorna invalido
+      //Se nÃ£o existir mais jogadas retorna invalido
       se numeroDeJogadas = 9 entao
          jogadaValor <- -1
          retorne jogadaValor
@@ -158,7 +158,7 @@ inicio
          //retorne jogadaValor
       fimSe
       
-      //Caso exita alguma jogada que não te faça perder, jogue!
+      //Caso exita alguma jogada que nÃ£o te faÃ§a perder, jogue!
       outroJogador <- RetornaOutroJogador(jogadorAtual)
       jogadaValorTemp <- RetornaJogadaMaquina(outroJogador)
       se (jogadaValorTemp <> _jogadaInvalida) e (jogadaValor = 0) entao
@@ -166,7 +166,7 @@ inicio
          retorne jogadaValor
       fimSe
 
-      //Tenta prevenir a vitoria do adversário (procura montar duas vitorias ao mesmo tempo)
+      //Tenta prevenir a vitoria do adversÃ¡rio (procura montar duas vitorias ao mesmo tempo)
       se (numeroDeJogadas = 3) e (jogadaValor = 0) entao
          se ((tabuleiro[1] * tabuleiro[9]) = 1) ou ((tabuleiro[3] * tabuleiro[7]) = 1) e (tabuleiro[5] <> 0)
             jogadaValor <- 1
@@ -227,7 +227,7 @@ inicio
          retorne jogadaValor
       fimSe
       
-      //Se Nenhuma das regras não forem  atendidas, jogue a primeira jogada
+      //Se Nenhuma das regras nÃ£o forem  atendidas, jogue a primeira jogada
       se jogadaValor <> 0 entao
          retorne jogadaValor
       senao
@@ -238,16 +238,16 @@ inicio
 fimfuncao
 
 
-//Popula o array "jogadasValdas" com uma lista de jogadas válidas
+//Popula o array "jogadasValdas" com uma lista de jogadas vÃ¡lidas
 procedimento PupulaListaDeJogadasValidas
 inicio
 
-      //limpa variável
+      //limpa variÃ¡vel
       para contador de 1 ate 10 faca
            ListaJogadasValidas[contador] <- 0
       fimPara
 
-      //Preenche a variável
+      //Preenche a variÃ¡vel
       ListaJogadasValidas[1] <- 0
       para contador de 1 ate 9 faca
            se tabuleiro[contador] = 0 entao
@@ -269,7 +269,7 @@ inicio
       fimSe
 fimfuncao
 
-//Cabeçalho do jogo
+//CabeÃ§alho do jogo
 procedimento  Cabecalho
    inicio
  	escreval("**********************************************************************************")
@@ -340,97 +340,97 @@ procedimento VerificaGanhador
 		se  (posicaoVetor[1,1] = "X") e (posicaoVetor[1,2] = "X") e (posicaoVetor[1,3] = "X") entao
 		ganhador <- jogadorX
 		pontuacaoX <- pontuacaoX + 1
-		criaLinha <- CriaLinhaGanhador("°",1)
+		criaLinha <- CriaLinhaGanhador("Â°",1)
 		alguemGanhou <- verdadeiro
 		senao
 		se  (posicaoVetor[1,1] = "X") e (posicaoVetor[2,2] = "X") e (posicaoVetor[3,3] = "X") entao
 		ganhador <- jogadorX
 		pontuacaoX <- pontuacaoX + 1
-		criaLinha <- CriaLinhaGanhador("°",7)
+		criaLinha <- CriaLinhaGanhador("Â°",7)
 		alguemGanhou <- verdadeiro
 		senao
 		se  (posicaoVetor[1,1] = "X") e (posicaoVetor[2,1] = "X") e (posicaoVetor[3,1] = "X") entao
 		ganhador <- jogadorX
 		pontuacaoX <- pontuacaoX + 1
-		criaLinha <- CriaLinhaGanhador("°",4)
+		criaLinha <- CriaLinhaGanhador("Â°",4)
 		alguemGanhou <- verdadeiro
 		senao
 		se  (posicaoVetor[1,2] = "X") e (posicaoVetor[2,2] = "X") e (posicaoVetor[3,2] = "X") entao
 		ganhador <- jogadorX
 		pontuacaoX <- pontuacaoX + 1
-		criaLinha <- CriaLinhaGanhador("°",5)
+		criaLinha <- CriaLinhaGanhador("Â°",5)
 		alguemGanhou <- verdadeiro
 		senao
 		se  (posicaoVetor[2,1] = "X") e (posicaoVetor[2,2] = "X") e (posicaoVetor[2,3] = "X") entao
 		ganhador <- jogadorX
 		pontuacaoX <- pontuacaoX + 1
-		criaLinha <- CriaLinhaGanhador("°",2)
+		criaLinha <- CriaLinhaGanhador("Â°",2)
 		alguemGanhou <- verdadeiro
 		senao
 		se  (posicaoVetor[3,1] = "X") e (posicaoVetor[3,2] = "X") e (posicaoVetor[3,3] = "X") entao
 		ganhador <- jogadorX
 		pontuacaoX <- pontuacaoX + 1
-		criaLinha <- CriaLinhaGanhador("°",3)
+		criaLinha <- CriaLinhaGanhador("Â°",3)
 		alguemGanhou <- verdadeiro
 		senao
 		se  (posicaoVetor[3,1] = "X") e (posicaoVetor[2,2] = "X") e (posicaoVetor[1,3] = "X") entao
 		ganhador <- jogadorX
 		pontuacaoX <- pontuacaoX + 1
-		criaLinha <- CriaLinhaGanhador("°",8)
+		criaLinha <- CriaLinhaGanhador("Â°",8)
 		alguemGanhou <- verdadeiro
 		senao
 		se  (posicaoVetor[1,3] = "X") e (posicaoVetor[2,3] = "X") e (posicaoVetor[3,3] = "X") entao
 		ganhador <- jogadorX
 		pontuacaoX <- pontuacaoX + 1
-		criaLinha <- CriaLinhaGanhador("°",6)
+		criaLinha <- CriaLinhaGanhador("Â°",6)
 		alguemGanhou <- verdadeiro
 		senao
 		se  (posicaoVetor[1,1] = "O") e (posicaoVetor[1,2] = "O") e (posicaoVetor[1,3] = "O") entao
 		ganhador <- jogadorO
 		pontuacaoO <- pontuacaoO + 1
-		criaLinha <- CriaLinhaGanhador("°",1)
+		criaLinha <- CriaLinhaGanhador("Â°",1)
 		alguemGanhou <- verdadeiro
 		senao
 		se  (posicaoVetor[1,1] = "O") e (posicaoVetor[2,2] = "O") e (posicaoVetor[3,3] = "O") entao
 		ganhador <- jogadorO
 		pontuacaoO <- pontuacaoO + 1
-		criaLinha <- CriaLinhaGanhador("°",7)
+		criaLinha <- CriaLinhaGanhador("Â°",7)
 		alguemGanhou <- verdadeiro
 		senao
 		se  (posicaoVetor[1,1] = "O") e (posicaoVetor[2,1] = "O") e (posicaoVetor[3,1] = "O") entao
 		ganhador <- jogadorO
 		pontuacaoO <- pontuacaoO + 1
-		criaLinha <- CriaLinhaGanhador("°",4)
+		criaLinha <- CriaLinhaGanhador("Â°",4)
 		alguemGanhou <- verdadeiro
 		senao
 		se  (posicaoVetor[1,2] = "O") e (posicaoVetor[2,2] = "O") e (posicaoVetor[3,2] = "O") entao
 		ganhador <- jogadorO
 		pontuacaoO <- pontuacaoO + 1
-		criaLinha <- CriaLinhaGanhador("°",5)
+		criaLinha <- CriaLinhaGanhador("Â°",5)
 		alguemGanhou <- verdadeiro
 		senao
 		se  (posicaoVetor[2,1] = "O") e (posicaoVetor[2,2] = "O") e (posicaoVetor[2,3] = "O") entao
 		ganhador <- jogadorO
 		pontuacaoO <- pontuacaoO + 1
-		criaLinha <- CriaLinhaGanhador("°",2)
+		criaLinha <- CriaLinhaGanhador("Â°",2)
 		alguemGanhou <- verdadeiro
 		senao
 		se  (posicaoVetor[3,1] = "O") e (posicaoVetor[3,2] = "O") e (posicaoVetor[3,3] = "O") entao
 		ganhador <- jogadorO
 		pontuacaoO <- pontuacaoO + 1
-		criaLinha <- CriaLinhaGanhador("°",3)
+		criaLinha <- CriaLinhaGanhador("Â°",3)
 		alguemGanhou <- verdadeiro
 		senao
 		se  (posicaoVetor[3,1] = "O") e (posicaoVetor[2,2] = "O") e (posicaoVetor[1,3] = "O") entao
 		ganhador <- jogadorO
 		pontuacaoO <- pontuacaoO + 1
-		criaLinha <- CriaLinhaGanhador("°",8)
+		criaLinha <- CriaLinhaGanhador("Â°",8)
 		alguemGanhou <- verdadeiro
 		senao
 		se  (posicaoVetor[1,3] = "O") e (posicaoVetor[2,3] = "O") e (posicaoVetor[3,3] = "O") entao
 		ganhador <- jogadorO
 		pontuacaoO <- pontuacaoO + 1
-		criaLinha <- CriaLinhaGanhador("°",6)
+		criaLinha <- CriaLinhaGanhador("Â°",6)
 		alguemGanhou <- verdadeiro
 		senao
 		se (posicaoVetor[1,1] <> " ") e (posicaoVetor[1,2] <> " ") e (posicaoVetor[1,3] <> " ") e (posicaoVetor[2,1] <> " ") e (posicaoVetor[2,2] <> " ") e (posicaoVetor[2,3] <> " ")e (posicaoVetor[3,1] <> " ") e (posicaoVetor[3,2] <> " ") e (posicaoVetor[3,3] <> " ") entao
@@ -466,7 +466,7 @@ procedimento Parabens
     se ganhador <> "Empate" entao
 
        escreval("                             PARABENS ",maiusc(ganhador))
-       escreval("                            Você foi o vencedor!!")
+       escreval("                            VocÃª foi o vencedor!!")
        escreval("")
        escreval("")
        escreval("")
@@ -496,7 +496,7 @@ procedimento Parabens
 
 fimprocedimento
 
-//Marca na variável do tabuleiro a letra do jogador
+//Marca na variÃ¡vel do tabuleiro a letra do jogador
 funcao MarcarPosicao(posicaoPeca:inteiro;tipoDeCaractere:caractere) : caractere
 	inicio
 	
@@ -581,10 +581,10 @@ funcao MarcarPosicao(posicaoPeca:inteiro;tipoDeCaractere:caractere) : caractere
 
 fimfuncao
 
-//Exibe as pontuações dos jogadores
+//Exibe as pontuaÃ§Ãµes dos jogadores
 procedimento ExibirPontuacaoJogadores
 inicio
-      escreval("  Pontuação:")
+      escreval("  PontuaÃ§Ã£o:")
       escreval("       ",jogadorX,": ",pontuacaoX)
       escreval("       ",jogadorO,": ",pontuacaoO)
       escreval("       Empate: ",pontuacaoEmpate)
@@ -603,13 +603,13 @@ inicio
 	escreval("2 - Dois Jogadores")
 	escreval("3 - Sair")
 	escreval("")
-	escreva("Opção desejada: ")
+	escreva("OpÃ§Ã£o desejada: ")
 	leia(opcao)
 	
 	limpatela
 	Cabecalho()
 	
-	//Etapa para obter as informações dos jogadores
+	//Etapa para obter as informaÃ§Ãµes dos jogadores
 	se opcao = 1 entao
 	   escreva("Digite o nome do jogador(X): ")
    	leia(jogadorX)
@@ -638,7 +638,7 @@ inicio
 	pontuacaoX <- 0
 	criaLinha <- CriaLinhaGanhador(" ",0)
 	
-	//laço para a repetição para o display do jogo
+	//laÃ§o para a repetiÃ§Ã£o para o display do jogo
 	enquanto alguemGanhou = falso faca
 	   numeroDeJogadas <- numeroDeJogadas + 1
 	   limpatela
@@ -648,13 +648,13 @@ inicio
 		ExibirPontuacaoJogadores()
 		
 		se (jogadorAtual = -1) entao
-			escreval("Agora é sua vez ",maiusc(jogadorX))
-			escreva("Digite um número de 1 a 9 de acordo com as casas: ")
+			escreval("Agora Ã© sua vez ",maiusc(jogadorX))
+			escreva("Digite um nÃºmero de 1 a 9 de acordo com as casas: ")
 			leia(posicaoX)
 			resultado <- MarcarPosicao(posicaoX,"X")
 			//tabuleiro[posicaoX] <- -1
 			se resultado = "ocupado" entao
-			    escreval("A posição já esta ocupada, escolha outa.")
+			    escreval("A posiÃ§Ã£o jÃ¡ esta ocupada, escolha outa.")
 			senao
 			    jogadorAtual <- 1
 			fimSe
@@ -662,20 +662,20 @@ inicio
 			ganhador <- ""
 		senao
    			se opcao = 1 entao
-               escreval("Agora é sua vez ",maiusc(jogadorO))
-      			//escreva("Digite um número de 1 a 9 de acordo com as casas: ")
+               escreval("Agora Ã© sua vez ",maiusc(jogadorO))
+      			//escreva("Digite um nÃºmero de 1 a 9 de acordo com as casas: ")
                //leia(posicaoO)
                posicaoO <- JogadaDaMaquina()
       			resultado <- MarcarPosicao(posicaoO,"O")
       			//tabuleiro[posicaoO] <- 1
    			senao
-   			   escreval("Agora é sua vez ",maiusc(jogadorO))
-      			escreva("Digite um número de 1 a 9 de acordo com as casas: ")
+   			   escreval("Agora Ã© sua vez ",maiusc(jogadorO))
+      			escreva("Digite um nÃºmero de 1 a 9 de acordo com as casas: ")
                leia(posicaoO)
       			resultado <- MarcarPosicao(posicaoO,"O")
    			fimSe
    			se resultado = "ocupado" entao
-   			    escreval("A posição já esta ocupada, escolha outa.")
+   			    escreval("A posiÃ§Ã£o jÃ¡ esta ocupada, escolha outa.")
    			senao
    			    jogadorAtual <- -1
    			fimSe
